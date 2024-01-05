@@ -26,7 +26,7 @@ export const AboutMe = () => {
             
             <li><span className='text-primary'>&#9656;</span> Tailwind</li>
             <li><span className='text-primary'>&#9656;</span> Node.js</li>
-            <li><span className='text-primary'>&#9656;</span>GO</li>
+            <li><span className='text-primary'>&#9656;</span> GO</li>
             <li><span className='text-primary'>&#9656;</span> Mongo DB</li>
             <li><span className='text-primary'>&#9656;</span> TypeScript</li>
         </ul>
