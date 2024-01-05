@@ -4,45 +4,49 @@ import { FiMenu } from "react-icons/fi"
 import { IoClose } from "react-icons/io5"
 import { motion, useAnimation } from "framer-motion"
 import { Link } from 'react-scroll'
-
+// import { useCallback } from 'react'
 
 
 const Navbar = () => {
+   
 
   const controls = useAnimation();
-
-  const [toggleMenu, settoggleMenu] = useState(false)
-  const [prevScroll, setprevScroll] = useState(0)
+  const [toggleMenu, setToggleMenu] = useState(false);
+  const [prevScroll, setPrevScroll] = useState(0);
 
   useEffect(() => {
+    const html = document.querySelector('html');
 
-    const html = document.querySelector('html')
-
-    if (toggleMenu) {
-      html.style.overflow = 'hidden'
-    } else {
-      html.style.overflow = 'auto'
-    }
-
-  }, [toggleMenu])
-
-  const handleScroll = () => {
-    const currentScroll = window.pageYOffset
-    if (currentScroll <= prevScroll) {
-      controls.start({ opacity: 1 })
-    } else {
-      controls.start({ opacity: 0 })
-    }
-    setprevScroll(currentScroll)
+  if (toggleMenu) {
+    html.style.overflow = 'hidden';
+  } else {
+    html.style.overflow = 'auto';
   }
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
+}, [toggleMenu]);
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
+
+
+useEffect(() => {
+  const handleScroll = () => {
+    const currentScroll = window.pageYOffset;
+  
+    if (currentScroll <= prevScroll) {
+      controls.start({ opacity: 1 });
+    } else {
+      controls.start({ opacity: 0 });
     }
-  }, [prevScroll])
+  
+    setPrevScroll(currentScroll);
+  };
+  window.addEventListener('scroll', handleScroll);
+
+  
+  return () => {
+    
+    window.removeEventListener('scroll', handleScroll);
+  };
+}, [prevScroll, controls]); 
 
 
   return (
@@ -127,23 +131,23 @@ const Navbar = () => {
         {toggleMenu ?
           <motion.div animate={{x:-20}}
         transition={{ duration: 0.3 }} className=' flex -mr-16 flex-col w-full h-screen -mt-10 bg-light_navy'>
-            <IoClose className='absolute top-10 text-4xl mr-[50px] text-primary hover:text-off_white self-end' onClick={() => { settoggleMenu((prev => (!prev))) }} />
+            <IoClose className='absolute top-10 text-4xl mr-[50px] text-primary hover:text-off_white self-end' onClick={() => { setToggleMenu((prev => (!prev))) }} />
 
             <ul className='flex flex-col items-center w-full h-full justify-center '>
-              <li className=' h-[15%] w-full items-center justify-center flex gap-1 hover:text-primary hover:cursor-pointer'>              <Link to='about' spy={true} smooth={true} duration={500} offset={-100} onClick={(prev)=>{settoggleMenu(!prev)}}>
+              <li className=' h-[15%] w-full items-center justify-center flex gap-1 hover:text-primary hover:cursor-pointer'>              <Link to='about' spy={true} smooth={true} duration={500} offset={-100} onClick={(prev)=>{setToggleMenu(!prev)}}>
 <span className=' text-primary'>01.</span><span>About</span></Link></li>
-              <li className=' h-[15%] w-full items-center justify-center flex gap-1 hover:text-primary hover:cursor-pointer'>              <Link to='experience' spy={true} smooth={true} duration={500} offset={-100} onClick={(prev)=>{settoggleMenu(!prev)}}>
+              <li className=' h-[15%] w-full items-center justify-center flex gap-1 hover:text-primary hover:cursor-pointer'>              <Link to='experience' spy={true} smooth={true} duration={500} offset={-100} onClick={(prev)=>{setToggleMenu(!prev)}}>
 <span className=' text-primary'>02.</span><span>Experience</span></Link></li>
-              <li className=' h-[15%] w-full items-center justify-center flex gap-1 hover:text-primary hover:cursor-pointer'>              <Link to='projects' spy={true} smooth={true} duration={500} offset={-100} onClick={(prev)=>{settoggleMenu(!prev)}}>
+              <li className=' h-[15%] w-full items-center justify-center flex gap-1 hover:text-primary hover:cursor-pointer'>              <Link to='projects' spy={true} smooth={true} duration={500} offset={-100} onClick={(prev)=>{setToggleMenu(!prev)}}>
 <span className=' text-primary'>03.</span><span>Work</span></Link></li>
-              <li className=' h-[15%] w-full  items-center justify-center flex gap-1 hover:text-primary hover:cursor-pointer'>              <Link to='contact' spy={true} smooth={true} duration={500} offset={-100} onClick={(prev)=>{settoggleMenu(!prev)}}>
+              <li className=' h-[15%] w-full  items-center justify-center flex gap-1 hover:text-primary hover:cursor-pointer'>              <Link to='contact' spy={true} smooth={true} duration={500} offset={-100} onClick={(prev)=>{setToggleMenu(!prev)}}>
 <span className=' text-primary'>04.</span><span>Contact</span></Link></li>
               <li className=' h-[15%] w-full items-center justify-center flex gap-1  hover:cursor-pointer'><div><Button title='Resume' /></div></li>
             </ul>
 
           </motion.div> :
           <>
-            <FiMenu className={`text-3xl text-primary hover:text-off_white`} onClick={() => { settoggleMenu((prev => (!prev))) }} />
+            <FiMenu className={`text-3xl text-primary hover:text-off_white`} onClick={() => { setToggleMenu((prev => (!prev))) }} />
           </>}
 
       </motion.div>
