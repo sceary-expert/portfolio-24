@@ -1,0 +1,23 @@
+[{
+    "j_no":1,
+    "name":"Ranjana Enterprises",
+    "position":"Full Stack Developer Intern",
+    "time_period":"February 2023 - July 2023",
+    "description":[
+       "Successfully developed phase-1 of the platform single-handedly from scratch where users can submit their solution for corresponding challenges.",
+       "Took complete ownership of the project by making total 36 APIs and 11 data models and deployed it to their server.",
+       "Successfully established a hierarchical parent-child relationship among categories, modules, levels, and challenges, with ’challenges’ being the lowest-level child and ’categories’ the highest-level parent.",
+       "Introduced SMTP functionality to facilitate OTP delivery via email.",
+       "Created thorough API documentation encompassing the functionality of each API along with validated test results.",
+       "Revised the data modeling and parent-child relationship to store only the parent’s name, enabling independent modifications by child entities without necessitating changes to the parent. This optimization ensures fast and efficient database access decreasing wait time from 6.88s to 1106ms.",
+       "Implemented authentication using JSON Web Tokens (JWT).",
+       "Independently integrated the admin aanel for the front-end where admin can assign score to the submitted solutions dynamically at runtime."
+    ]
+}
+
+
+]
+
+
+
+

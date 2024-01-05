@@ -1,0 +1,31 @@
+[
+    {
+        "name":"Tappet",
+        "description": "A textile blog website catering to textile students’ unique information needs.",
+        "img":"/images/Tappet.png",
+        "tech_used":[
+            "React Js",
+            "Tailwind",
+            "Mongo DB",
+            "GO",
+            "Render and Netlify"
+        ],
+        "git_Link":"https://github.com/sceary-expert/Blog-App-in-React-and-GO",
+        "link":"https://tappet.netlify.app/"
+    },
+    {
+        "name":"Article Forest (Under Development)",
+        "description": "Article Forest helps businesses to write SEO friendly articles for them.",
+        "img":"images/ArticleForest.png",
+        "tech_used":[
+            "React Js",
+            "Tailwind",
+            "Node JS",
+            "Express",
+            "Dialogflow"
+        ],
+        "git_Link":"https://github.com/sceary-expert/article-forest",
+        "link":"https://articleforest.netlify.app/"
+    }
+]
+
